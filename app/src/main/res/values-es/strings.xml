@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Top Dark</string>
+    <string name="password">Contraseña</string>
+    <string name="user">Usuario</string>
+    <string name="login_name">Usuario</string>
+    <string name="password_name">contraseña</string>
+    <string name="button_login">Entrar</string>
+</resources>
