@@ -26,7 +26,7 @@ class UserServicesImpl : UserServices {
         val retrofitclient = retrofit.getRetrofit(httpClient)
         CoroutineScope(Dispatchers.IO).launch{
             val al: Response<ResponseData> = retrofitclient.create(ServerRequests::class.java).LoginWithCredentials()
-            Globals.currentUser = al.body().data
+            Globals.currentUser = al.body()?.data
         }
     }
 
