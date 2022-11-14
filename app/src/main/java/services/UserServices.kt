@@ -4,7 +4,7 @@ import Models.dataclasses.UserCredentials
 
 interface UserServices {
 
-    fun logInWithCredentials(userCredentials: UserCredentials)
+    suspend fun logInWithCredentials(userCredentials: UserCredentials): Boolean
 
 
 }

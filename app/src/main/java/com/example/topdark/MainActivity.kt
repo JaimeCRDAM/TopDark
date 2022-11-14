@@ -2,17 +2,12 @@ package com.example.topdark
 
 import Models.Globals
 import Models.dataclasses.UserCredentials
-import Requests.ServerRequests
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.topdark.databinding.ActivityMainBinding
-import httpmethods.RetrofitClientImpl
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.util.Base64
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -27,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.BTNLogin.setOnClickListener {
             val userCredentials = UserCredentials(binding.TVLogin.text.toString(), binding.TVPassword.text.toString())
-            Globals.UserServices.logInWithCredentials(userCredentials)
+            val scope = CoroutineScope(Dispatchers.IO)
+            scope.launch {
+                Globals.UserServices.logInWithCredentials(userCredentials)
+            }
         }
     }
-
-
 }

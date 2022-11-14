@@ -1,4 +1,4 @@
-package Requests
+package requests
 
 import Models.dataclasses.user.ResponseData
 import retrofit2.Response
