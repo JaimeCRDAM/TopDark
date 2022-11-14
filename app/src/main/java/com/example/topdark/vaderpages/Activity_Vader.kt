@@ -1,5 +1,6 @@
 package com.example.topdark.vaderpages
 
+import Models.Globals
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.topdark.R
+import com.example.topdark.data.model.LoggedInUser
 import com.example.topdark.databinding.ActivityVaderBinding
 
 class Activity_Vader : AppCompatActivity() {
@@ -19,9 +21,11 @@ class Activity_Vader : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityVaderBinding.inflate(layoutInflater)
+        binding.TVName.text = Globals.user?.displayName
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
 
         val navController = findNavController(R.id.nav_host_fragment_content_activity_vader)
         appBarConfiguration = AppBarConfiguration(navController.graph)

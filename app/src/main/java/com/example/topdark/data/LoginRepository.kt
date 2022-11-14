@@ -1,5 +1,8 @@
 package com.example.topdark.data
 
+import Models.Globals
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.topdark.data.model.LoggedInUser
 
 /**
@@ -27,11 +30,13 @@ class LoginRepository(val dataSource: LoginDataSource) {
         dataSource.logout()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
         val result = dataSource.login(username, password)
 
         if (result is Result.Success) {
+            Globals.user = result.data
             setLoggedInUser(result.data)
         }
 
