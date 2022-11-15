@@ -1,4 +1,4 @@
-package Models.dataclasses.user
+package Models.dataclasses.userresponse
 
 data class Data(
     val authToken: String? = null,

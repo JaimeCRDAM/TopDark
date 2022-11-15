@@ -4,7 +4,7 @@ import Models.Globals
 import Models.dataclasses.UserCredentials
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.example.topdark.data.model.LoggedInUser
+import Models.dataclasses.userresponse.LoggedInUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,21 +16,17 @@ import java.io.IOException
 class LoginDataSource {
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    suspend fun login(username: String, password: String): Result<LoggedInUser> {
         var user: LoggedInUser? = null
         try {
-            val loginCoroutine = CoroutineScope(Dispatchers.IO).launch {
-                val userCredentials = UserCredentials(username, password)
-                user = Globals.userServices.logInWithCredentials(userCredentials)!!
-            }
-            while (loginCoroutine.isActive){
-                Thread.sleep(100)
-            }
+            val userCredentials = UserCredentials(username, password)
+            user = Globals.userServices.logInWithCredentials(userCredentials)!!
+
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
         }
 
-        return Result.Success(user!!)
+        return Result.Success(user)
     }
 
     fun logout() {

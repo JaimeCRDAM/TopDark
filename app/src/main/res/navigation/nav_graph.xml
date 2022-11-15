@@ -7,34 +7,69 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.topdark.vaderpages.FirstFragment"
+        android:name="com.example.topdark.vaderpages.fragments.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
             android:id="@+id/action_FirstFragment_to_registerPilot"
             app:destination="@id/registerPilot" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.topdark.vaderpages.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_FirstFragment_to_rakingPilots"
+            app:destination="@id/rakingPilots" />
+        <action
+            android:id="@+id/action_FirstFragment_to_registerShip"
+            app:destination="@id/registerShip" />
+        <action
+            android:id="@+id/action_FirstFragment_to_registerMission"
+            app:destination="@id/registerMission" />
+        <action
+            android:id="@+id/action_FirstFragment_to_registerPilotToMission"
+            app:destination="@id/registerPilotToMission" />
     </fragment>
     <fragment
         android:id="@+id/registerPilot"
-        android:name="com.example.topdark.vaderpages.RegisterPilot"
+        android:name="com.example.topdark.vaderpages.fragments.RegisterPilot"
         android:label="fragment_register_pilot"
         tools:layout="@layout/fragment_register_pilot" >
         <action
             android:id="@+id/action_registerPilot_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rakingPilots"
+        android:name="com.example.topdark.vaderpages.fragments.RakingPilots"
+        android:label="fragment_raking_pilots"
+        tools:layout="@layout/fragment_raking_pilots" >
+        <action
+            android:id="@+id/action_rakingPilots_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerShip"
+        android:name="com.example.topdark.vaderpages.fragments.RegisterShip"
+        android:label="fragment_register_ship"
+        tools:layout="@layout/fragment_register_ship" >
+        <action
+            android:id="@+id/action_registerShip_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerMission"
+        android:name="com.example.topdark.vaderpages.fragments.RegisterMission"
+        android:label="fragment_register_mission"
+        tools:layout="@layout/fragment_register_mission" >
+        <action
+            android:id="@+id/action_registerMission_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerPilotToMission"
+        android:name="com.example.topdark.vaderpages.fragments.RegisterPilotToMission"
+        android:label="fragment_register_pilot_to_mission"
+        tools:layout="@layout/fragment_register_pilot_to_mission" >
+        <action
+            android:id="@+id/action_registerPilotToMission_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

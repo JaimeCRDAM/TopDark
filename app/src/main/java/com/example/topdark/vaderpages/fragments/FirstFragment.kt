@@ -1,4 +1,4 @@
-package com.example.topdark.vaderpages
+package com.example.topdark.vaderpages.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,19 +38,19 @@ class FirstFragment : Fragment() {
         }
 
         binding.BTNRegisterPilotToMission.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_registerPilot)
+            findNavController().navigate(R.id.action_FirstFragment_to_registerPilotToMission)
         }
 
         binding.BTNPilotRanking.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_registerPilot)
+            findNavController().navigate(R.id.action_FirstFragment_to_rakingPilots)
         }
 
         binding.BTNRegisterShip.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_registerPilot)
+            findNavController().navigate(R.id.action_FirstFragment_to_registerShip)
         }
 
         binding.BTNRegisterMission.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_registerPilot)
+            findNavController().navigate(R.id.action_FirstFragment_to_registerMission)
         }
 
     }

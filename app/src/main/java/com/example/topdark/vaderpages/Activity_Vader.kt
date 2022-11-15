@@ -9,7 +9,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.topdark.R
-import com.example.topdark.data.model.LoggedInUser
 import com.example.topdark.databinding.ActivityVaderBinding
 
 class Activity_Vader : AppCompatActivity() {

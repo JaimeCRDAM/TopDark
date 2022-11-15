@@ -1,6 +1,6 @@
 package Requests
 
-import Models.dataclasses.user.ResponseData
+import Models.dataclasses.userresponse.ResponseData
 import retrofit2.Response
 import retrofit2.http.GET
 

@@ -1,11 +1,11 @@
 package services
 
 import Models.dataclasses.UserCredentials
-import Models.dataclasses.user.ResponseData
+import Models.dataclasses.userresponse.ResponseData
 import Requests.ServerRequests
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.example.topdark.data.model.LoggedInUser
+import Models.dataclasses.userresponse.LoggedInUser
 import httpmethods.RetrofitClient
 import httpmethods.RetrofitClientImpl
 import retrofit2.Response

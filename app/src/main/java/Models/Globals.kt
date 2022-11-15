@@ -1,6 +1,6 @@
 package Models
 
-import com.example.topdark.data.model.LoggedInUser
+import Models.dataclasses.userresponse.LoggedInUser
 import services.UserServicesImpl
 
 object Globals {

@@ -1,7 +1,7 @@
 package services
 
 import Models.dataclasses.UserCredentials
-import com.example.topdark.data.model.LoggedInUser
+import Models.dataclasses.userresponse.LoggedInUser
 
 interface UserServices {
 
