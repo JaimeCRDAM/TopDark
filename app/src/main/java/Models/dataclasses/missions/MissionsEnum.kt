@@ -20,5 +20,4 @@ enum class MissionsEnum{
         this.missionClass = missionClass
         this.dataClass = dataClass.declaredConstructors[1]
     }
-
 }
