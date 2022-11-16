@@ -5,3 +5,5 @@ data class Bombardment(
     val cargo: Boolean = false,
     val passengers: Boolean = false
 )
+
+

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".vaderpages.fragments.RegisterPilot">
 
+    <Button
+        android:id="@+id/BTNRegisterPilotMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.934" />
+
     <LinearLayout
         android:layout_width="138dp"
         android:layout_height="528dp"

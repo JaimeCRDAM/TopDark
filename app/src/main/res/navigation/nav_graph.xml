@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerMission"
-        android:name="com.example.topdark.vaderpages.fragments.RegisterMission"
+        android:name="com.example.topdark.vaderpages.fragments.registermission.RegisterMission"
         android:label="fragment_register_mission"
         tools:layout="@layout/fragment_register_mission" >
         <action

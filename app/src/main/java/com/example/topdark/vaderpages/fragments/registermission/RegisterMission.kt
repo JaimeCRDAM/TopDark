@@ -1,9 +1,8 @@
-package com.example.topdark.vaderpages.fragments
+package com.example.topdark.vaderpages.fragments.registermission
 
 import Models.dataclasses.missions.MissionsEnum
-import Models.dataclasses.ship.ShipsEnum
-import android.graphics.BitmapFactory
-import android.opengl.Visibility
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.example.topdark.R
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.topdark.databinding.FragmentRegisterMissionBinding
+import com.example.topdark.ui.login.LoginViewModel
+import com.example.topdark.ui.login.LoginViewModelFactory
+import com.example.topdark.vaderpages.Activity_Vader
 
 class RegisterMission : Fragment() {
     private var _binding: FragmentRegisterMissionBinding? = null
@@ -20,16 +24,22 @@ class RegisterMission : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var item: String
+    private lateinit var registerViewModel: RegisterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegisterMissionBinding.inflate(inflater, container, false)
+
+        prepareViewModel()
+
         val shipArray = MissionsEnum.values().map {it.missionClass}
         val adapter = ArrayAdapter(
             this.requireContext(), android.R.layout.simple_spinner_dropdown_item, shipArray
         )
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.SpinnerMission.adapter = adapter
 
@@ -41,6 +51,35 @@ class RegisterMission : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         })
 
+        binding.BTNRegisterMissionMenu.setOnClickListener {
+            val klass = MissionsEnum.valueOf(item)
+            if (item == MissionsEnum.Flight.missionClass){
+                val klassInstance = klass.dataClass.newInstance(
+                    Integer.parseInt(binding.TBFlight.text.toString())
+                )
+                val klassType = klassInstance.javaClass
+
+            }
+            if (item == MissionsEnum.Combat.missionClass){
+                val klassInstance = klass.dataClass.newInstance(
+                    Integer.parseInt(binding.TBEnemies.text.toString()),
+                    binding.RBBombardmentCargo.isChecked,
+                    binding.RBBombardmentPassengers.isChecked
+                )
+                val klassType = klassInstance.javaClass
+
+            }
+            if (item == MissionsEnum.Bombardment.missionClass){
+                val klassInstance = klass.dataClass.newInstance(
+                    Integer.parseInt(binding.TBEnemies.text.toString()),
+                    binding.RBBombardmentCargo.isChecked,
+                    binding.RBBombardmentPassengers.isChecked
+                )
+                val klassType = klassInstance.javaClass
+
+            }
+
+        }
 
         return binding.root
 
@@ -48,14 +87,15 @@ class RegisterMission : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
     fun hideAndSeek(mission: String){
+        item = mission
         if (mission == MissionsEnum.Flight.missionClass){
             binding.TBFlight.visibility = View.VISIBLE
         } else {
@@ -75,5 +115,24 @@ class RegisterMission : Fragment() {
             binding.RBBombardmentCargo.visibility = View.GONE
             binding.RBBombardmentPassengers.visibility = View.GONE
         }
+    }
+
+    fun prepareViewModel(){
+        registerViewModel = ViewModelProvider(this, RegisterViewModelFactory())
+            .get(RegisterViewModel::class.java)
+
+        registerViewModel.registerResult.observe(viewLifecycleOwner, Observer {
+            val registerResult = it ?: return@Observer
+
+            if (registerResult.error != null) {
+                Toast.makeText(requireContext(), "hola", Toast.LENGTH_SHORT).show()
+            }
+            if (registerResult.success != null) {
+
+            }
+
+            //Complete and destroy login activity once successful
+            //finish()
+        })
     }
 }
