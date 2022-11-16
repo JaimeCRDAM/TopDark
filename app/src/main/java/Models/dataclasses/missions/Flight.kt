@@ -1,5 +1,3 @@
 package Models.dataclasses.missions
 
-data class Flight(
-    val duration: Int = 0
-)
+data class Flight(val generalDataClass: GeneralDataClass)

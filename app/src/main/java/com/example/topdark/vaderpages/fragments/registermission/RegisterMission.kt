@@ -1,32 +1,36 @@
 package com.example.topdark.vaderpages.fragments.registermission
 
+import Models.dataclasses.missions.GeneralDataClass
 import Models.dataclasses.missions.MissionsEnum
-import android.app.Activity
-import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.Group
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.topdark.databinding.FragmentRegisterMissionBinding
-import com.example.topdark.ui.login.LoginViewModel
-import com.example.topdark.ui.login.LoginViewModelFactory
-import com.example.topdark.vaderpages.Activity_Vader
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 class RegisterMission : Fragment() {
     private var _binding: FragmentRegisterMissionBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var item: String
     private lateinit var registerViewModel: RegisterViewModel
+    private lateinit var currentGroup: Group
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,40 +49,29 @@ class RegisterMission : Fragment() {
 
         binding.SpinnerMission.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val item = parent.selectedItem.toString()
-                hideAndSeek(item)
+                this@RegisterMission.item = parent.selectedItem.toString()
+                if (this@RegisterMission::currentGroup.isInitialized){
+                    currentGroup.visibility = View.GONE
+                    resetCheckBoxes()
+                }
+                currentGroup = requireView().findViewById(MissionsEnum.valueOf(item).group)
+                binding.TBAmount.setHint(MissionsEnum.valueOf(item).hint)
+                currentGroup.visibility = View.VISIBLE
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         })
 
         binding.BTNRegisterMissionMenu.setOnClickListener {
             val klass = MissionsEnum.valueOf(item)
-            if (item == MissionsEnum.Flight.missionClass){
-                val klassInstance = klass.dataClass.newInstance(
-                    Integer.parseInt(binding.TBFlight.text.toString())
-                )
-                val klassType = klassInstance.javaClass
+            val generalDataClass = GeneralDataClass(
+                Integer.parseInt(binding.TBAmount.text.toString()),
+                binding.RBBombardmentCargo.isChecked,
+                binding.RBBombardmentPassengers.isChecked
+            )
 
+            CoroutineScope(Dispatchers.IO).launch{
+                registerViewModel.requestResult(generalDataClass, klass.missionClass)
             }
-            if (item == MissionsEnum.Combat.missionClass){
-                val klassInstance = klass.dataClass.newInstance(
-                    Integer.parseInt(binding.TBEnemies.text.toString()),
-                    binding.RBBombardmentCargo.isChecked,
-                    binding.RBBombardmentPassengers.isChecked
-                )
-                val klassType = klassInstance.javaClass
-
-            }
-            if (item == MissionsEnum.Bombardment.missionClass){
-                val klassInstance = klass.dataClass.newInstance(
-                    Integer.parseInt(binding.TBEnemies.text.toString()),
-                    binding.RBBombardmentCargo.isChecked,
-                    binding.RBBombardmentPassengers.isChecked
-                )
-                val klassType = klassInstance.javaClass
-
-            }
-
         }
 
         return binding.root
@@ -94,27 +87,9 @@ class RegisterMission : Fragment() {
         _binding = null
     }
 
-    fun hideAndSeek(mission: String){
-        item = mission
-        if (mission == MissionsEnum.Flight.missionClass){
-            binding.TBFlight.visibility = View.VISIBLE
-        } else {
-            binding.TBFlight.visibility = View.GONE
-        }
-        if (mission == MissionsEnum.Combat.missionClass){
-            binding.TBEnemies.visibility = View.VISIBLE
-        } else {
-            binding.TBEnemies.visibility = View.GONE
-        }
-        if (mission == MissionsEnum.Bombardment.missionClass){
-            binding.TBTargets.visibility = View.VISIBLE
-            binding.RBBombardmentCargo.visibility = View.VISIBLE
-            binding.RBBombardmentPassengers.visibility = View.VISIBLE
-        } else{
-            binding.TBTargets.visibility = View.GONE
-            binding.RBBombardmentCargo.visibility = View.GONE
-            binding.RBBombardmentPassengers.visibility = View.GONE
-        }
+    fun resetCheckBoxes(){
+        binding.RBBombardmentCargo.isChecked = false
+        binding.RBBombardmentPassengers.isChecked = false
     }
 
     fun prepareViewModel(){
