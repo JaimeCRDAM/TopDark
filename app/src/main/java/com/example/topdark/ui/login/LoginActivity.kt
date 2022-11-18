@@ -14,12 +14,15 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.example.topdark.R
 import com.example.topdark.databinding.ActivityLogin2Binding
+import com.example.topdark.pilot_pages.PilotMain
 import com.example.topdark.vaderpages.Activity_Vader
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import models.Globals
 
 
 class LoginActivity : AppCompatActivity() {
@@ -63,8 +66,17 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
-                val myIntent = Intent(this@LoginActivity, Activity_Vader::class.java)
+
+
+                lateinit var myIntent: Intent
+                if(Globals.user?.nickname == "admin" ||Globals.user?.username == "admin"){
+                    myIntent = Intent(this@LoginActivity, Activity_Vader::class.java)
+                } else {
+                    myIntent = Intent(this@LoginActivity, PilotMain::class.java)
+                }
                 startActivity(myIntent)
+
+
             }
             setResult(Activity.RESULT_OK)
 
@@ -80,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         CoroutineScope(Dispatchers.IO).launch{
-            loginViewModel.login("admin", "password1234")
+            loginViewModel.login("a", "a")
         }
         login.setOnClickListener {
             //loading.visibility = View.VISIBLE

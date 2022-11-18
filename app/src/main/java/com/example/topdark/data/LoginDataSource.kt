@@ -1,13 +1,10 @@
 package com.example.topdark.data
 
-import Models.Globals
-import Models.dataclasses.UserCredentials
+import models.Globals
+import models.data_classes.UserCredentials
 import android.os.Build
 import androidx.annotation.RequiresApi
-import Models.dataclasses.userresponse.LoggedInUser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import models.data_classes.user_login_response.LoggedInUser
 import java.io.IOException
 
 /**
@@ -23,6 +20,7 @@ class LoginDataSource {
             user = Globals.userServices.logInWithCredentials(userCredentials)!!
 
         } catch (e: Throwable) {
+            e.printStackTrace()
             return Result.Error(IOException("Error logging in", e))
         }
 

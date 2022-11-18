@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.topdark.vaderpages.fragments.FirstFragment"
+        android:name="com.example.topdark.vaderpages.fragments.VaderInitialFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerPilot"
-        android:name="com.example.topdark.vaderpages.fragments.RegisterPilot"
+        android:name="com.example.topdark.vaderpages.fragments.register_pilot.RegisterPilot"
         android:label="fragment_register_pilot"
         tools:layout="@layout/fragment_register_pilot" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/rakingPilots"
-        android:name="com.example.topdark.vaderpages.fragments.RakingPilots"
+        android:name="com.example.topdark.vaderpages.fragments.ranking_pilots.RakingPilots"
         android:label="fragment_raking_pilots"
         tools:layout="@layout/fragment_raking_pilots" >
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerShip"
-        android:name="com.example.topdark.vaderpages.fragments.RegisterShip"
+        android:name="com.example.topdark.vaderpages.fragments.register_chip.RegisterShip"
         android:label="fragment_register_ship"
         tools:layout="@layout/fragment_register_ship" >
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerMission"
-        android:name="com.example.topdark.vaderpages.fragments.registermission.RegisterMission"
+        android:name="com.example.topdark.vaderpages.fragments.register_mission.RegisterMission"
         android:label="fragment_register_mission"
         tools:layout="@layout/fragment_register_mission" >
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerPilotToMission"
-        android:name="com.example.topdark.vaderpages.fragments.RegisterPilotToMission"
+        android:name="com.example.topdark.vaderpages.fragments.register_pilot_to_mission.RegisterPilotToMission"
         android:label="fragment_register_pilot_to_mission"
         tools:layout="@layout/fragment_register_pilot_to_mission" >
         <action

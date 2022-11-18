@@ -1,9 +1,9 @@
 package com.example.topdark.data
 
-import Models.Globals
+import models.Globals
 import android.os.Build
 import androidx.annotation.RequiresApi
-import Models.dataclasses.userresponse.LoggedInUser
+import models.data_classes.user_login_response.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

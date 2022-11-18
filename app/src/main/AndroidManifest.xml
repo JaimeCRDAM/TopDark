@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".pilot_pages.PilotMain"
+            android:exported="false"
+            android:label="@string/title_activity_pilot_main"
+            android:theme="@style/Theme.TopDark.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".vaderpages.Activity_Vader"
             android:exported="false"
             android:label="@string/title_activity_vader"

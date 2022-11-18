@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vaderpages.fragments.RegisterShip">
+    tools:context=".vaderpages.fragments.register_chip.RegisterShip">
 
     <Button
         android:id="@+id/BTNStorage3"
@@ -15,10 +15,9 @@
         android:text="@string/folder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.855" />
+        app:layout_constraintVertical_bias="0.868" />
 
     <EditText
         android:id="@+id/TVPlate"
@@ -100,12 +99,12 @@
         android:id="@+id/BTNRegisterShipMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center"
         android:text="@string/accept"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="0.947" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
