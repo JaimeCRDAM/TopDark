@@ -12,7 +12,7 @@ import com.example.topdark.R
 import models.data_classes.idk.Data
 import models.data_classes.to_present.Pilot
 
-class Adapter(private val dataSet: MutableList<Data>, private val context: Context) :
+class Adapter(private val dataSet: MutableList<Pilot>, private val context: Context) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     companion object {

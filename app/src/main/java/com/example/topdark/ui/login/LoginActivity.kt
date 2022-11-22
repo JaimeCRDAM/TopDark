@@ -1,5 +1,6 @@
 package com.example.topdark.ui.login
 
+import models.Globals
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
@@ -22,7 +23,6 @@ import com.example.topdark.vaderpages.Activity_Vader
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import models.Globals
 
 
 class LoginActivity : AppCompatActivity() {
@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         CoroutineScope(Dispatchers.IO).launch{
-            loginViewModel.login("a", "a")
+            loginViewModel.login("admin", "admin")
         }
         login.setOnClickListener {
             //loading.visibility = View.VISIBLE

@@ -22,7 +22,7 @@
     <string name="register_ship">Register a ship</string>
     <string name="register_mission">Register a mission</string>
     <string name="register_pilot_mission">Assign pilot to mission</string>
-    <string name="ranking_pilot">Pilot's ranking</string>
+    <string name="ranking_pilot">Pilots ranking</string>
     <string name="welcome_text">Welcome,</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

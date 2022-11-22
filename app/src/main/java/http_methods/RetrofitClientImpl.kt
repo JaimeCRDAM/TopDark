@@ -8,8 +8,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 
 class RetrofitClientImpl : RetrofitClient {
     override fun getRetrofit(client: OkHttpClient): Retrofit {
-        var URL_BASE = "http://192.168.1.133:9003"
-        //var URL_BASE = "http://109.227.157.182:9003"
+        //var URL_BASE = "http://192.168.1.133:9003"
+        var URL_BASE = "http://109.227.157.182:9003"
         return Retrofit.Builder()
             .baseUrl(URL_BASE)
             .addConverterFactory(JacksonConverterFactory.create())

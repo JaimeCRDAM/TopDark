@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topdark.databinding.FragmentSecondBinding
-import com.example.topdark.vaderpages.fragments.ranking_pilots.adapter.Adapter
+import com.example.topdark.pilot_pages.list_of_missions.adapter.Adapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
