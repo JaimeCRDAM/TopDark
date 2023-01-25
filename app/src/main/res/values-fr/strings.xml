@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TopDark</string>
+    <string name="title_activity_login">Activité de connexion</string>
+    <string name="prompt_user">Utilisateur</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">S'identifier</string>
+    <string name="action_sign_in_short">S'identifier</string>
+    <string name="welcome">Accueillir!</string>
+    <string name="invalid_username">Nom d'utilisateur non valide</string>
+    <string name="invalid_password">Le mot de passe doit comporter 5 caractères</string>
+    <string name="login_failed">"Échec de la connexion"</string>
+    <string name="title_activity_vader">Activity_Vador</string>
+    <string name="prompt_email">Utilisateur</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Premier fragment</string>
+    <string name="next">Prochain</string>
+    <string name="previous">Précédent</string>
+    <string name="hello_first_fragment">Bonjour premier fragment</string>
+    <string name="register_pilot">Inscrire un pilote</string>
+    <string name="register_ship">Immatriculer un navire</string>
+    <string name="register_mission">Inscrire une mission</string>
+    <string name="register_pilot_mission">Affecter un pilote à la mission</string>
+    <string name="ranking_pilot">Classement des pilotes</string>
+    <string name="welcome_text">Accueillir,</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="avatar">Avatar</string>
+    <string name="pilot_experience">Vivre</string>
+    <string name="camera">Caméra</string>
+    <string name="folder">Galerie</string>
+    <string name="back_button">Retour</string>
+    <string name="camera_fail">La caméra n'a pas pu être utilisée en raison d'un manque d'autorisations</string>
+    <string name="ship_plate">Plaque</string>
+    <string name="cargo">Le fret peut-il ?</string>
+    <string name="passengers">Les passagers peuvent-ils ?</string>
+    <string name="passengers_question">Passagers ?</string>
+    <string name="cargo_question">Cargaison?</string>
+    <string name="flight_duration">Durée du vol</string>
+    <string name="targets">Quantité de cibles</string>
+    <string name="enemies">Quantité d'ennemis</string>
+    <string name="accept">Accepter</string>
+    <string name="mission_success">Mission enregistrée.</string>
+    <string name="title_activity_ranking_pilots">ClassementPilotes</string>
+    <string name="action_settings">Réglages</string>
+    <string name="age">"Âge "</string>
+    <string name="name">"Nom: "</string>
+    <string name="experience">"Vivre: "</string>
+    <string name="passengers_mission">« Passagers : »</string>
+    <string name="cargo_mission">« Cargaison : »</string>
+    <string name="pilot">Pilote</string>
+    <string name="mission">Mission</string>
+    <string name="ship">Bateau</string>
+    <string name="title_activity_pilot_main">PilotMain</string>
+    <string name="second_fragment_label">Deuxième fragment</string>
+    <string name="hello_second_fragment">Bonjour deuxième fragment.  Arg :</string>
+</resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".vaderpages.FirstFragment">
+    tools:context=".vaderpages.fragments.VaderInitialFragment">
 
     <Button
         android:id="@+id/BTNPilotRanking"
@@ -13,7 +13,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/ranking_pilotos"
+        android:text="@string/ranking_pilot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,7 +27,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="@string/asignar_piloto"
+        android:text="@string/register_pilot_mission"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginBottom="1dp"
-        android:text="@string/alta_nave"
+        android:text="@string/register_ship"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginTop="25dp"
-        android:text="@string/alta_mision"
+        android:text="@string/register_mission"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,10 +67,10 @@
         android:layout_height="54dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="@string/alta_piloto"
+        android:text="@string/register_pilot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.154" />

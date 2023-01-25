@@ -1,9 +1,9 @@
 package com.example.topdark.data
 
-import Models.Globals
+import models.Globals
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.example.topdark.data.model.LoggedInUser
+import models.data_classes.user_login_response.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -28,10 +28,11 @@ class LoginRepository(val dataSource: LoginDataSource) {
     fun logout() {
         user = null
         dataSource.logout()
+        Globals.user = null
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    suspend fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
         val result = dataSource.login(username, password)
 
